@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React Practice</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="js-container"></div>
+        <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        <script type="text/babel">
+     function RenderCount() {
+    const [count, setCount] = React.useState(0);
+    const renderCount = React.useRef(0);
+
+    React.useEffect(() => {
+        renderCount.current += 1; // updating ref doesn't cause re-render
+    });
+
+    return (
+        <>
+            <h1>Count: {count}</h1>
+            <h2>Rendered: {renderCount.current} times</h2>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </>
+    );
+}
+            function App(){
+                return(
+                    <>
+                        <RenderCount />
+                    </>
+                );
+            }
+            const container=document.querySelector('.js-container');
+            ReactDOM.createRoot(container).render(<App />);
+        </script>
+    </body>
+</html>
