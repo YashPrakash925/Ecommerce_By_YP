@@ -1,6 +1,7 @@
 import './checkout-header.css';
 import './checkout.css';
 
+
 export function CheckoutPage() {
     return (
         <>
