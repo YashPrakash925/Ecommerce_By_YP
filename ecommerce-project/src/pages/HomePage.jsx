@@ -3,6 +3,11 @@ import { Header } from '../components/header';
 import { products } from '../../starting-code/data/products';
 
 export function HomePage() {
+  fetch("http://localhost:3000/products").then((response)=>{
+    response.json().then((data)=>{
+      console.log(data);
+    })
+  })
   return (
     <>
       <title>Ecommerce by YP</title>
@@ -10,7 +15,7 @@ export function HomePage() {
       <Header />
       <div className="home-page">
         <div className="products-grid">
-          {products.map((product) => {
+          {products.map((product) => {  
             return (
               <>
                 <div  key={product.id} className="product-container">

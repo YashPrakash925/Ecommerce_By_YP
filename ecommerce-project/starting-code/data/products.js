@@ -139,7 +139,7 @@ export const products = [
       stars: 4.5,
       count: 232
     },
-    price: 4599,
+    price: 6599,
     keywords: ["bedroom", "curtains", "home"]
   },
   {
@@ -161,7 +161,7 @@ export const products = [
       stars: 5,
       count: 846
     },
-    price: 5074,
+    price: 2074,
     keywords: ["water kettle", "appliances", "kitchen"]
   },
   {
@@ -216,7 +216,7 @@ export const products = [
       stars: 4.5,
       count: 119
     },
-    price: 1850,
+    price: 850,
     keywords: ["bathmat", "bathroom", "home"]
   },
   {
@@ -249,7 +249,7 @@ export const products = [
       stars: 4.5,
       count: 305
     },
-    price: 2899,
+    price: 999,
     keywords: ["bathroom", "cleaning"]
   },
   {
@@ -403,7 +403,7 @@ export const products = [
       stars: 4.5,
       count: 93
     },
-    price: 2990,
+    price: 1990,
     keywords: ["bathroom", "home", "towels"]
   },
   {
@@ -425,7 +425,7 @@ export const products = [
       stars: 4,
       count: 3
     },
-    price: 10747,
+    price: 1747,
     keywords: ["food blenders", "kitchen", "appliances"]
   },
   {
@@ -458,7 +458,7 @@ export const products = [
       stars: 4.5,
       count: 1045
     },
-    price: 1899,
+    price: 1099,
     keywords: ["kitchen", "kitchen towels", "tissues"]
   }
 ];
