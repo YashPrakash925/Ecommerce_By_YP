@@ -2,7 +2,7 @@ import './HomePage.css';
 import { Header } from '../components/header';
 import { useEffect, useState } from 'react';
 
-export function HomePage() {
+export function HomePage({cart}) {
   const [products, setProducts]=useState([]);
   async function GetData(){
     const response=await fetch("http://localhost:3000/api/products");
@@ -12,17 +12,6 @@ export function HomePage() {
 
   useEffect(()=>{
     GetData();},[]
-  );
-
-  const [cart, setCart]=useState([]);
-  async function GetCart(){
-    const response=await fetch("http://localhost:3000/api/cart-items");
-    const data=await response.json();
-    setCart(data);
-  }
-
-  useEffect(()=>{
-    GetCart();},[]
   );
 
   return (
@@ -54,7 +43,7 @@ export function HomePage() {
                   </div>
 
                   <div className="product-price">
-                    ₹{product.price}
+                    ₹{product.priceCents}
                   </div>
 
                   <div className="product-quantity-container">
