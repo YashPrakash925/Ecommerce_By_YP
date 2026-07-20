@@ -5,25 +5,31 @@ import { useEffect, useState } from 'react';
 export function HomePage() {
   const [products, setProducts]=useState([]);
   async function GetData(){
-    const response=await fetch("http://localhost:3000/products");
+    const response=await fetch("http://localhost:3000/api/products");
     const data=await response.json(); 
     setProducts(data);
-    console.log(products);
   }
-  useEffect(()=>{GetData();},[]);
-  // useEffect(()=>{
-  //   fetch("http://localhost:3000/products").
-  //     then((response)=>{
-  //       response.json().then((data)=>{
-  //         console.log(data);
-  //       })
-  //     })
-  // })
+
+  useEffect(()=>{
+    GetData();},[]
+  );
+
+  const [cart, setCart]=useState([]);
+  async function GetCart(){
+    const response=await fetch("http://localhost:3000/api/cart-items");
+    const data=await response.json();
+    setCart(data);
+  }
+
+  useEffect(()=>{
+    GetCart();},[]
+  );
+
   return (
     <>
       <title>Ecommerce by YP</title>
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
-      <Header />
+      <Header cart={cart}/>
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {  
