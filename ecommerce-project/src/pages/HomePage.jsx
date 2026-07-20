@@ -1,13 +1,24 @@
 import './HomePage.css';
 import { Header } from '../components/header';
-import { products } from '../../starting-code/data/products';
+import { useEffect, useState } from 'react';
 
 export function HomePage() {
-  fetch("http://localhost:3000/products").then((response)=>{
-    response.json().then((data)=>{
-      console.log(data);
-    })
-  })
+  const [products, setProducts]=useState([]);
+  async function GetData(){
+    const response=await fetch("http://localhost:3000/products");
+    const data=await response.json(); 
+    setProducts(data);
+    console.log(products);
+  }
+  useEffect(()=>{GetData();},[]);
+  // useEffect(()=>{
+  //   fetch("http://localhost:3000/products").
+  //     then((response)=>{
+  //       response.json().then((data)=>{
+  //         console.log(data);
+  //       })
+  //     })
+  // })
   return (
     <>
       <title>Ecommerce by YP</title>
