@@ -209,3 +209,14 @@
   margin-top: 20px;
   margin-bottom: 19px;
 }
+
+.delete-quantity-link{
+  color:red;
+  cursor: pointer;
+  text-decoration: underline  ;
+}
+.update-quantity-link{
+  color:green;
+  cursor: pointer;
+  text-decoration: underline  ;
+}
