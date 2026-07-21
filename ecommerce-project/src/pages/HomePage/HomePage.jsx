@@ -3,7 +3,7 @@ import { Header } from '../../components/header';
 import { useEffect, useState } from 'react';
 import { ProductsGrid } from './ProductsGrid';
 
-export function HomePage({cart}) {
+export function HomePage({cart,GetCart}) {
   const [products, setProducts]=useState([]);
   async function GetData(){
     const response=await fetch("http://localhost:3000/api/products");
@@ -21,7 +21,7 @@ export function HomePage({cart}) {
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
       <Header cart={cart}/>
       <div className="home-page">
-        <ProductsGrid products={products} />
+        <ProductsGrid products={products} GetCart={GetCart}/>
       </div>
     </>
   );

@@ -1,10 +1,10 @@
 import { Header } from '../../components/header';
 import './404Page.css';
 
-export function ErrorPage(){
+export function ErrorPage({cart}){
     return(
         <>
-            <Header />
+            <Header cart={cart}/>
             <p>❌Error! Invalid URL</p>
         </>
     );

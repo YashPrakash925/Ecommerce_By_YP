@@ -21,7 +21,7 @@ export function OrderSummary({cart, deliveryOptions}){
 
                                         <div className="cart-item-details-grid">
                                             <img className="product-image"
-                                                src={cartItem.product.image} />
+                                                src={cartItem.product.image} /> 
 
                                             <div className="cart-item-details">
                                                 <div className="product-name">

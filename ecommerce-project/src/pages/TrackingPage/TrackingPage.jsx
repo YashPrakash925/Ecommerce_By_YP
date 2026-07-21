@@ -1,60 +1,50 @@
 import './tracking.css';
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
+import { Header } from '../../components/header';
+import { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
 
-export function TrackingPage() {
+export function TrackingPage({ cart }) {
+    const { orderId, productId } = useParams();
+    const [orders, setOrders] = useState(null);
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/api/orders/${orderId}?expand=products`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }, [orderId])
+    if (!orders) { return null; }
+    const orderProduct = orders.products.find((orderProduct) => {
+        return orderProduct.productId === productId;
+    })
+
+    const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - orders.orderTimeMs;
+    const timePassedMs = dayjs().valueOf() - orders.orderTimeMs;
+
+    let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
+    deliveryPercent = Math.min(Math.max(deliveryPercent, 0), 100);
     return (
         <>
-            <div className="header">
-                <div className="left-section">
-                    <Link to="/" className="header-link">
-                        <img className="logo"
-                            src="images/logo-white.png" />
-                        <img className="mobile-logo"
-                            src="images/mobile-logo-white.png" />
-                    </Link>
-                </div>
-
-                <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search" />
-
-                    <button className="search-button">
-                        <img className="search-icon" src="images/icons/search-icon.png" />
-                    </button>
-                </div>
-
-                <div className="right-section">
-                    <Link className="orders-link header-link" to="/tracking">
-
-                        <span className="orders-text">Orders</span>
-                    </Link>
-
-                    <Link className="cart-link header-link" to="/checkout">
-                        <img className="cart-icon" src="images/icons/cart-icon.png" />
-                        <div className="cart-quantity">3</div>
-                        <div className="cart-text">Cart</div>
-                    </Link>
-                </div>
-            </div>
-
+            <title>Tracking</title>
+            <Header cart={cart} />
             <div className="tracking-page">
                 <div className="order-tracking">
-                    <Link className="back-to-orders-link link-primary" to="/tracking">
+                    <Link className="back-to-orders-link link-primary" to="/orders">
                         View all orders
                     </Link>
-
                     <div className="delivery-date">
-                        Arriving on Monday, June 13
+                        Arriving on {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
                     </div>
 
                     <div className="product-info">
-                        Black and Gray Athletic Cotton Socks - 6 Pairs
+                        {orderProduct.product.name}
                     </div>
 
                     <div className="product-info">
-                        Quantity: 1
+                        Quantity: {orderProduct.quantity}
                     </div>
 
-                    <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                    <img className="product-image" src={`http://localhost:3000/${orderProduct.product.image}`} />
 
                     <div className="progress-labels-container">
                         <div className="progress-label">
@@ -69,7 +59,10 @@ export function TrackingPage() {
                     </div>
 
                     <div className="progress-bar-container">
-                        <div className="progress-bar"></div>
+                        <div className="progress-bar"
+                            style={{width:`${deliveryPercent}%`}}>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
