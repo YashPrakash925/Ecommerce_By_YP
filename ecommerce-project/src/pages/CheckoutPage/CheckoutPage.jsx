@@ -8,7 +8,7 @@ import { OrderSummary } from './OrderSummary';
 import { PaymentSummary } from './PaymentSummary';
 
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, GetCart }) {
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState(null);
     useEffect(() => {
@@ -21,7 +21,7 @@ export function CheckoutPage({ cart }) {
         fetch("http://localhost:3000/api/payment-summary")
             .then(response => response.json())
             .then(data => setPaymentSummary(data))
-    }, [])
+    }, [cart])
 
     return (
         <>
@@ -47,7 +47,7 @@ export function CheckoutPage({ cart }) {
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
                 <div className="checkout-grid">
-                    <OrderSummary cart={cart} deliveryOptions={deliveryOptions} />
+                    <OrderSummary cart={cart} deliveryOptions={deliveryOptions} GetCart={GetCart}/>
                     <PaymentSummary paymentSummary={paymentSummary} />
                 </div>
             </div>
