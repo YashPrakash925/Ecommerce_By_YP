@@ -48,7 +48,7 @@ export function CheckoutPage({ cart, GetCart }) {
                 <div className="page-title">Review your order</div>
                 <div className="checkout-grid">
                     <OrderSummary cart={cart} deliveryOptions={deliveryOptions} GetCart={GetCart}/>
-                    <PaymentSummary paymentSummary={paymentSummary} />
+                    <PaymentSummary paymentSummary={paymentSummary} GetCart={GetCart}/>
                 </div>
             </div>
         </>
