@@ -1,9 +1,9 @@
-import { HomePage } from "./pages/HomePage";
+import { HomePage } from "./pages/HomePage/HomePage";
 import { Route, Routes } from "react-router";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
-import { OrdersPage } from "./pages/OrdersPage";
-import { TrackingPage } from "./pages/TrackingPage";
-import { ErrorPage } from "./pages/404Page";
+import { OrdersPage } from "./pages/OrdersPage/OrdersPage";
+import { TrackingPage } from "./pages/TrackingPage/TrackingPage";
+import { ErrorPage } from "./pages/ErrorPage/404Page";
 import {useState, useEffect} from 'react';
 
 function App() {

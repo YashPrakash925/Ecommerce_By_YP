@@ -1,29 +1,10 @@
-import './orders.css';
-import { Header } from '../components/header';
-import { Fragment } from 'react';
-import { Link } from 'react-router';
-import BuyAgainIcon from '../assets/images/icons/buy-again.png';
-import { useEffect, useState } from 'react';
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
+import { Link } from "react-router";
+import { Fragment } from "react";
 
-export function OrdersPage({ cart }) {
-    const [orders, setOrders] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:3000/api/orders?expand=products")
-            .then(response => response.json())
-            .then(data => setOrders(data))
-    }, [])
-
-    return (
-        <>
-            <title>Orders</title>
-            <link rel="icon" type="image/svg+xml" to="orders-favicon.png" />
-            <Header cart={cart} />
-            <div className="orders-page">
-                <div className="page-title">Your Orders</div>
-
-                <div className="orders-grid">
+export function OrdersGrid({orders, BuyAgainIcon}){
+    return(
+        <div className="orders-grid">
                     {orders.map((order) => {
                         return (
                             <div key={order.id} className="order-container">
@@ -85,7 +66,5 @@ export function OrdersPage({ cart }) {
                         );
                     })}
                 </div>
-            </div>
-        </>
     );
 }

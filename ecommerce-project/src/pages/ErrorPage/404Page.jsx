@@ -1,4 +1,4 @@
-import { Header } from "../components/header";
+import { Header } from '../../components/header';
 import './404Page.css';
 
 export function ErrorPage(){
