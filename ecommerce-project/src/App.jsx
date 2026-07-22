@@ -7,6 +7,9 @@ import { ErrorPage } from "./pages/ErrorPage/404Page";
 import {useState, useEffect} from 'react';
 import axios from "axios";
 
+
+window.axios=axios;
+
 function App() {
     const [cart, setCart]=useState([]);
     async function GetCart(){
@@ -17,19 +20,9 @@ function App() {
     useEffect(()=>{
       GetCart();},[]
     );
-    const [products, setProducts]=useState([]);
-      async function GetData(){
-        const response=await fetch("http://localhost:3000/api/products");
-        const data=await response.json(); 
-        setProducts(data);
-      }
-    
-    useEffect(()=>{
-      GetData();},[]
-    );
     return(
         <Routes>
-            <Route index element={<HomePage cart={cart} GetCart={GetCart} products={products}/>} />
+            <Route index element={<HomePage cart={cart} GetCart={GetCart}/>} />
             <Route path="checkout" element={<CheckoutPage cart={cart} GetCart={GetCart}/>} />
             <Route path="orders" element={<OrdersPage cart={cart} GetCart={GetCart}/>}/>
             <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart}/>} />

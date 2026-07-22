@@ -1,8 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
+import Checkmark from '../../assets/images/icons/checkmark.png';
 
 export function Product({product,GetCart}) {
     const [quantity, setQuantity]=useState(1);
+    const [added, setAdded]=useState(false);
+    function ShowAdded(){
+        setAdded(true);
+        setTimeout(()=>{
+            setAdded(false);
+        },2000);
+    }
     return (
         <>
             <div key={product.id} className="product-container">
@@ -47,8 +55,9 @@ export function Product({product,GetCart}) {
 
                 <div className="product-spacer"></div>
 
-                <div className="added-to-cart">
-                    <img src="images/icons/checkmark.png" />
+                <div className="added-to-cart"
+                    style={{opacity:added?1:0}}>
+                    <img src={Checkmark} />Added
                 </div>
 
                 <button className="add-to-cart-button button-primary"
@@ -58,6 +67,7 @@ export function Product({product,GetCart}) {
                             quantity: quantity
                         });
                         await GetCart();
+                        ShowAdded();
                     }}>
                     Add to Cart
                 </button>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export function PaymentSummary({paymentSummary, GetCart}) {
     const navigate=useNavigate();
