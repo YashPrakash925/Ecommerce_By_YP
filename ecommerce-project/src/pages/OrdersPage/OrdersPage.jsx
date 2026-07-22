@@ -4,7 +4,7 @@ import BuyAgainIcon from '../../assets/images/icons/buy-again.png';
 import { useEffect, useState } from 'react';
 import { OrdersGrid } from './OrdersGrid';
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart ,GetCart}) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export function OrdersPage({ cart }) {
             <Header cart={cart} />
             <div className="orders-page">
                 <div className="page-title">Your Orders</div>
-                <OrdersGrid orders={orders} BuyAgainIcon={BuyAgainIcon}/> 
+                <OrdersGrid orders={orders} BuyAgainIcon={BuyAgainIcon} GetCart={GetCart}/> 
             </div>
         </>
     );

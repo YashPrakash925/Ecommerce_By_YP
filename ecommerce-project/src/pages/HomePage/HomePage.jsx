@@ -1,20 +1,8 @@
 import './HomePage.css';
 import { Header } from '../../components/header';
-import { useEffect, useState } from 'react';
 import { ProductsGrid } from './ProductsGrid';
 
-export function HomePage({cart,GetCart}) {
-  const [products, setProducts]=useState([]);
-  async function GetData(){
-    const response=await fetch("http://localhost:3000/api/products");
-    const data=await response.json(); 
-    setProducts(data);
-  }
-
-  useEffect(()=>{
-    GetData();},[]
-  );
-
+export function HomePage({cart,GetCart, products}) {
   return (
     <>
       <title>Ecommerce by YP</title>
