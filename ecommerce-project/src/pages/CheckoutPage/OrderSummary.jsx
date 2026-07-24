@@ -16,14 +16,14 @@ export function OrderSummary({ cart, deliveryOptions, GetCart }) {
                     return null;
                 }
                 async function deleteCartItem() {
-                    await axios.delete(`http://localhost:3000/api/cart-items/${cartItem.productId}`)
+                    await axios.delete(`http://https://ecommerce-by-yp.onrender.com/api/cart-items/${cartItem.productId}`)
                     await GetCart();
                 }
                 function ShowBox() {
                     setShowInput(true);
                 }
                 async function updateCartItem() {
-                    await axios.put(`http://localhost:3000/api/cart-items/${cartItem.productId}`, {
+                    await axios.put(`http://https://ecommerce-by-yp.onrender.com/api/cart-items/${cartItem.productId}`, {
                         quantity: Number(quantity)
                     })
                     await GetCart();
@@ -82,7 +82,7 @@ export function OrderSummary({ cart, deliveryOptions, GetCart }) {
                                     {deliveryOptions.map((deliveryOption) => {
                                         let priceShipping = deliveryOption.priceCents > 0 ? `${deliveryOption.priceCents}- Shipping` : 'FREE Shipping';
                                         async function updateDeliveryOption() {
-                                            await axios.put(`http://localhost:3000/api/cart-items/${cartItem.productId}`, {
+                                            await axios.put(`http://https://ecommerce-by-yp.onrender.com/api/cart-items/${cartItem.productId}`, {
                                                 deliveryOptionId: deliveryOption.id
                                             })
                                             await GetCart();

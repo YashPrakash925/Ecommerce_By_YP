@@ -8,7 +8,7 @@ import axios from 'axios';
 export function HomePage({cart,GetCart}) {
   const [products, setProducts]=useState([]);
       async function GetData(){
-        const response=await fetch("http://localhost:3000/api/products");
+        const response=await fetch("http://https://ecommerce-by-yp.onrender.com/api/products");
         const data=await response.json(); 
         setProducts(data);
       }
@@ -22,7 +22,7 @@ export function HomePage({cart,GetCart}) {
 
   useEffect(()=>{
     const getHomeData=async ()=>{
-      const urlPath=search?`http://localhost:3000/api/products?search=${search}` : 'http://localhost:3000/api/products';
+      const urlPath=search?`http://https://ecommerce-by-yp.onrender.com/api/products?search=${search}` : 'http://https://ecommerce-by-yp.onrender.com/api/products';
       const response =await axios.get(urlPath);
       setProducts(response.data);
     };

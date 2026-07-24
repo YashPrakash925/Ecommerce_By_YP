@@ -9,7 +9,7 @@ export function TrackingPage({ cart }) {
     const [orders, setOrders] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/orders/${orderId}?expand=products`)
+        fetch(`http://https://ecommerce-by-yp.onrender.com/api/orders/${orderId}?expand=products`)
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [orderId])
@@ -44,7 +44,7 @@ export function TrackingPage({ cart }) {
                         Quantity: {orderProduct.quantity}
                     </div>
 
-                    <img className="product-image" src={`http://localhost:3000/${orderProduct.product.image}`} />
+                    <img className="product-image" src={`http://https://ecommerce-by-yp.onrender.com/${orderProduct.product.image}`} />
 
                     <div className="progress-labels-container">
                         <div className="progress-label">
