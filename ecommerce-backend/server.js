@@ -344,6 +344,17 @@ const products = [
   }
 ];
 
+let cartItems = [];
+
+app.get('/api/cart-items', (req,res)=>{
+    res.json(cartItems);
+});
+
+app.post('/api/cart-items',(req,res)=>{
+    const item = req.body;
+    cartItems.push(item);
+    res.json(item);
+});
 app.get('/api/products', (req, res) => {
     res.json(products);
 });
