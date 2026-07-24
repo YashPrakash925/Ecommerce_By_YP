@@ -344,7 +344,7 @@ const products = [
   }
 ];
 
-app.get('/products', (req, res) => {
+app.get('api/products', (req, res) => {
     res.json(products);
 });
 
