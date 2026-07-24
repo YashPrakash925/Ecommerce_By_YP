@@ -22,7 +22,7 @@ export function HomePage({cart,GetCart}) {
 
   useEffect(()=>{
     const getHomeData=async ()=>{
-      const urlPath=search?`https://ecommerce-by-yp.onrender.com/api/products?search=${search}` : 'http://https://ecommerce-by-yp.onrender.com/api/products';
+      const urlPath=search?`https://ecommerce-by-yp.onrender.com/api/products?search=${search}` : 'hthttps://ecommerce-by-yp.onrender.com/api/products';
       const response =await axios.get(urlPath);
       setProducts(response.data);
     };

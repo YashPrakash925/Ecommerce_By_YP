@@ -8,7 +8,7 @@ export function OrdersPage({ cart ,GetCart}) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch("http://https://ecommerce-by-yp.onrender.com/api/orders?expand=products")
+        fetch("https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/api/orders?expand=products")
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [])

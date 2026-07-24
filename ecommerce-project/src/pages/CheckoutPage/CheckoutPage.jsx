@@ -12,13 +12,13 @@ export function CheckoutPage({ cart, GetCart }) {
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState(null);
     useEffect(() => {
-        fetch("http://https://ecommerce-by-yp.onrender.com/api/delivery-options?expand=estimatedDeliveryTime")
+        fetch("https://ecommerce-by-yp.onrender.com/api/delivery-options?expand=estimatedDeliveryTime")
             .then(response => response.json())
             .then(data => setDeliveryOptions(data));
     }, [])
 
     useEffect(() => {
-        fetch("http://https://ecommerce-by-yp.onrender.com/api/payment-summary")
+        fetch("https://ecommerce-by-yp.onrender.com/api/payment-summary")
             .then(response => response.json())
             .then(data => setPaymentSummary(data))
     }, [cart])

@@ -13,7 +13,7 @@ window.axios=axios;
 function App() {
     const [cart, setCart]=useState([]);
     async function GetCart(){
-        const response=await axios.get("http://https://ecommerce-by-yp.onrender.com/api/cart-items?expand=product")
+        const response=await axios.get("https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/api/cart-items?expand=product")
         setCart(response.data);
     }
     
