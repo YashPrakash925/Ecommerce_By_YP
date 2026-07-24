@@ -31,7 +31,7 @@ export function OrdersGrid({ orders, BuyAgainIcon, GetCart }) {
                         <div className="order-details-grid">
                             {order.products.map((orderProduct) => {
                                         async function AddToCart() {
-                                            await axios.post('https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/api/cart-items', {
+                                            await axios.post('https://ecommerce-by-yp.onrender.com/api/cart-items', {
                                                 productId: orderProduct.product.id,
                                                 quantity: orderProduct.quantity
                                             });

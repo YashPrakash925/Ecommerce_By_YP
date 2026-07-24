@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 export function PaymentSummary({paymentSummary, GetCart}) {
     const navigate=useNavigate();
     async function createOrder(){
-        await axios.post("https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/api/orders")
+        await axios.post("https://ecommerce-by-yp.onrender.com/api/orders")
         await GetCart();
         navigate('/orders');
     } 

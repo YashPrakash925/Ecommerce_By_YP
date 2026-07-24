@@ -44,7 +44,7 @@ export function TrackingPage({ cart }) {
                         Quantity: {orderProduct.quantity}
                     </div>
 
-                    <img className="product-image" src={`https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/${orderProduct.product.image}`} />
+                    <img className="product-image" src={`https://ecommerce-by-yp.onrender.com/${orderProduct.product.image}`} />
 
                     <div className="progress-labels-container">
                         <div className="progress-label">
