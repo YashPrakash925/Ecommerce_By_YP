@@ -62,7 +62,7 @@ export function Product({product,GetCart}) {
 
                 <button className="add-to-cart-button button-primary"
                     onClick={async () => {
-                        await axios.post("http://https://ecommerce-by-yp.onrender.com/api/cart-items", {
+                        await axios.post("https://ecommerce-by-yp.onrender.com/api/cart-items", {
                             productId: product.id,
                             quantity: quantity
                         });
