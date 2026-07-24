@@ -9,7 +9,7 @@ export function TrackingPage({ cart }) {
     const [orders, setOrders] = useState(null);
 
     useEffect(() => {
-        fetch(`https://ecommerce-by-yp.onrender.com//https://ecommerce-by-yp.onrender.com/api/orders/${orderId}?expand=products`)
+        fetch(`https://ecommerce-by-yp.onrender.com/api/orders/${orderId}?expand=products`)
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [orderId])
